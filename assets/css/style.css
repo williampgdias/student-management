@@ -161,4 +161,17 @@ input {
     padding: 0;
     font-size: 0.9rem;
     margin: 0;
+    font-weight: 300;
+    width: 150px !important;
+}
+
+.btn:hover {
+    color: #7f7c7c;
+    background-color: transparent !important;
+    border: 1px solid #7f7c7c;
+    font-weight: 300;
+}
+
+.d-flex {
+    width: 400px;
 }
