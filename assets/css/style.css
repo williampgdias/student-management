@@ -4,8 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-        'Lucida Sans', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -14,14 +13,6 @@ a {
 
 a.links {
     display: none;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
 }
 
 p {
@@ -48,69 +39,6 @@ p {
     animation-duration: 0.5s;
     animation-timing-function: ease;
     animation-fill-mode: both;
-}
-
-#toregister:target ~ .content #register,
-#tologin:target ~ .content #login {
-    z-index: 2;
-    -webkit-animation-name: fadeInLeft;
-    animation-name: fadeInLeft;
-
-    -webkit-animation-delay: 0.1s;
-    animation-delay: 0.1s;
-}
-
-#register:target ~ .content #login,
-#tologin:target ~ .content #register {
-    -webkit-animation-name: fadeOutLeft;
-    animation-name: fadeOutLeft;
-}
-
-/* Animation to change between login and register */
-/* FadeInLeft */
-@-webkit-keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(-20px);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateX(-20px);
-    }
-    100% {
-        opacity: 1;
-        -webkit-transform: translateX(0);
-    }
-}
-
-/* FadeOutLeft */
-@-webkit-keyframes fadeOutLeft {
-    0% {
-        opacity: 1;
-        -webkit-transform: translateX(0);
-    }
-    100% {
-        opacity: 0;
-        -webkit-transform: translateX(-20px);
-    }
-}
-
-@keyframes fadeOutLeft {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
 }
 
 .content {
@@ -219,4 +147,24 @@ input {
     color: #39bfd7;
     background: #f7f7f7;
     border: 1px solid #4ab3c6;
+}
+
+/* Students */
+/* Container */
+.students-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+/* THead */
+.table-dark {
+    --bs-table-bg: #e1eaeb;
+    --bs-table-color: #000;
+}
+
+.table-hover:hover {
+    --bs-table-bg: #e1eaeb;
 }
