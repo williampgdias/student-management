@@ -43,6 +43,7 @@ p {
 .btn:hover,
 .btn:active {
     background: #4ab3c6 !important;
+    border: 1px solid #7f7c7c;
 }
 
 .error-message-email,
@@ -169,17 +170,15 @@ input {
 
 /* Button */
 .students-btn {
-    background-color: #7f7c7c;
     font-size: 0.9rem;
-    font-weight: 300;
     width: 150px !important;
+    background: rgb(61, 157, 179);
 }
 
 .students-btn:hover {
-    color: #7f7c7c;
-    background-color: transparent !important;
+    color: #fff;
+    background-color: #4ab3c6 !important;
     border: 1px solid #7f7c7c;
-    font-weight: 300;
 }
 
 .d-flex {
