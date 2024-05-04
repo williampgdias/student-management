@@ -28,6 +28,30 @@ p {
     height: 100vh;
 }
 
+.btn {
+    width: 100% !important;
+    cursor: pointer;
+    background: rgb(61, 157, 179);
+    padding: 8px 5px;
+    color: #fff;
+    font-size: 1.25rem;
+    border: 1px solid #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 1px #333;
+}
+
+.btn:hover,
+.btn:active {
+    background: #4ab3c6 !important;
+}
+
+.error-message-email,
+.error-message-password,
+.error-message-name {
+    margin-top: 5px;
+    color: red;
+}
+
 /* Login and Register styles */
 #register,
 #login {
@@ -94,24 +118,6 @@ input {
     outline: none;
 }
 
-/* Submit button */
-.btn {
-    width: 100% !important;
-    cursor: pointer;
-    background: rgb(61, 157, 179);
-    padding: 8px 5px;
-    color: #fff;
-    font-size: 1.25rem;
-    border: 1px solid #fff;
-    margin-bottom: 20px;
-    text-shadow: 0 1px 1px #333;
-}
-
-.btn:hover,
-.btn:active {
-    background: #4ab3c6 !important;
-}
-
 /* Link Style */
 .link {
     color: #7f7c7c;
@@ -145,6 +151,12 @@ input {
     padding-top: 200px;
 }
 
+.add-student {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* THead */
 .table-dark {
     --bs-table-bg: #e1eaeb;
@@ -156,16 +168,14 @@ input {
 }
 
 /* Button */
-.btn {
+.students-btn {
     background-color: #7f7c7c;
-    padding: 0;
     font-size: 0.9rem;
-    margin: 0;
     font-weight: 300;
     width: 150px !important;
 }
 
-.btn:hover {
+.students-btn:hover {
     color: #7f7c7c;
     background-color: transparent !important;
     border: 1px solid #7f7c7c;
@@ -174,4 +184,9 @@ input {
 
 .d-flex {
     width: 400px;
+}
+
+/* NavBar Button */
+.d-flex .students-btn {
+    margin: 0;
 }
