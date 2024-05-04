@@ -1,22 +1,43 @@
-(() => {
-    'use strict';
+$(document).ready(function () {
+    const inputs = $('.form-floating');
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation');
+    let emailError = $('.error-message-email');
+    let passwordError = $('.error-message-password');
+    let nameError = $('.error-message-name');
 
-    // Loop over them and prevent submission
-    Array.from(forms).forEach((form) => {
-        form.addEventListener(
-            'submit',
-            (event) => {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
+    emailError.hide();
+    passwordError.hide();
+    nameError.hide();
 
-                form.classList.add('was-validated');
-            },
-            false
-        );
+    $('.needs-validation').submit(function (event) {
+        // Condition to Email Error
+        if ($('#floatingEmail').val() == '') {
+            emailError.show();
+            event.preventDefault();
+        }
+
+        // Condition to Name Error
+        if ($('#floatingInput').val() == '') {
+            nameError.show();
+            event.preventDefault();
+        }
+
+        // Condition to Password Error
+        if ($('#floatingPassword').val() == '') {
+            passwordError.show();
+            event.preventDefault();
+        }
+
+        $('#floatingEmail').keyup(function () {
+            emailError.hide();
+        });
+
+        $('#floatingInput').keyup(function () {
+            nameError.hide();
+        });
+
+        $('#floatingPassword').keyup(function () {
+            passwordError.hide();
+        });
     });
-})();
+});
