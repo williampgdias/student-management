@@ -85,13 +85,7 @@ $(document).ready(function () {
         });
     }
 
-    validateInputFieldsOnKeyUp();
-
-    errorsMessage('', '.error-message-email');
-    errorsMessage('', '.error-message-password');
-    errorsMessage('', '.error-message-name');
-
-    $('.needs-validation').submit(function (event) {
+    function handleFormValidation(event) {
         // Condition to Email Error
         if ($('#floatingEmail').val() == '') {
             errorsMessage(
@@ -115,7 +109,13 @@ $(document).ready(function () {
             );
             event.preventDefault();
         }
-    });
+    }
+
+    validateInputFieldsOnKeyUp();
+
+    errorsMessage('', '.error-message-email');
+    errorsMessage('', '.error-message-password');
+    errorsMessage('', '.error-message-name');
 
     $('#addStudentsButton').click(function (event) {
         event.preventDefault();
@@ -124,4 +124,6 @@ $(document).ready(function () {
 
         $('#floatingId').text('');
     });
+
+    $('#loginForm').submit(handleFormValidation);
 });
