@@ -54,33 +54,33 @@
                             <div class="modal-body">
                                 <form method="post" class="row g-3 needs-validation" novalidate>
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="floatingInput"
+                                        <input type="number" class="form-control" id="floatingId"
                                             placeholder="name@example.com" required>
-                                        <label for="floatingInput">ID</label>
+                                        <label for="floatingId">ID</label>
                                         <div class="invalid-feedback">
                                             Please, enter a valid ID
                                         </div>
                                     </div>
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="floatingInput"
+                                        <input type="email" class="form-control" id="floatingName"
                                             placeholder="name@example.com" required>
-                                        <label for="floatingInput">Name</label>
+                                        <label for="floatingName">Name</label>
                                         <div class="invalid-feedback">
                                             Please, enter a valid name
                                         </div>
                                     </div>
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="floatingInput"
+                                        <input type="email" class="form-control" id="floatingEmail"
                                             placeholder="name@example.com" required>
-                                        <label for="floatingInput">Email address</label>
+                                        <label for="floatingEmail">Email address</label>
                                         <div class="invalid-feedback">
                                             Please, enter a valid email
                                         </div>
                                     </div>
                                     <div class="form-floating">
-                                        <input type="password" class="form-control" id="floatingPassword"
+                                        <input type="text" class="form-control" id="floatingPpsNumber"
                                             placeholder="text" required>
-                                        <label for="floatingPassword">PPS Number</label>
+                                        <label for="floatingPpsNumber">PPS Number</label>
                                         <div class="invalid-feedback">
                                             Please, enter a valid PPS number
                                         </div>
@@ -88,7 +88,8 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn students-btn"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn students-btn">Add Student</button>
+                                        <button class="btn students-btn" id="addStudentsButton">Add
+                                            Student</button>
                                     </div>
                                 </form>
                             </div>
@@ -103,28 +104,11 @@
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">PPS Number</th>
+                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="table-hover">
-                            <th scope="row">001</th>
-                            <td>William Dias</td>
-                            <td>smdwilliam89@gmail.com</td>
-                            <td>1263395PA</td>
-                        </tr>
-                        <!-- 
-                        <tr class="table-hover">
-                            <th scope="row">002</th>
-                            <td>Bárbara Moreira</td>
-                            <td>bcarvalho089@gmail.com</td>
-                            <td>1452206QA</td>
-                        </tr>
-                        <tr class="table-hover">
-                            <th scope="row">003</th>
-                            <td>Sidnei Dias</td>
-                            <td>sidneimdias@gmail.com</td>
-                            <td>4239921PA</td>
-                        </tr> -->
+                        <!-- Injected by jQuery -->
                     </tbody>
                 </table>
             </div>
