@@ -1,4 +1,12 @@
 $(document).ready(function () {
+    // DELETE THIS AFTER STARTS
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (currentUser) {
+        $('#userName').text(currentUser.name);
+    }
+    // DELETE THIS AFTER ENDS
+
     let students = [];
 
     function errorsMessage(message, targetDiv) {
@@ -111,6 +119,35 @@ $(document).ready(function () {
         }
     }
 
+    function verifyLogin(event) {
+        event.preventDefault();
+
+        // Capture form data
+        const email = $('#floatingEmail').val();
+        const password = $('#floatingPassword').val();
+
+        $.getJSON('../../assets/data/users.json', function (users) {
+            let userFound = null;
+            for (let i = 0; i < users.length; i++) {
+                if (
+                    users[i].email === email &&
+                    users[i].password === password
+                ) {
+                    userFound = users[i];
+                    break;
+                }
+            }
+            if (userFound) {
+                // ERASE THIS AFTER
+                localStorage.setItem('currentUser', JSON.stringify(userFound));
+
+                window.location.href = '../../students.html';
+            } else {
+                alert('User not found. Please, register.');
+            }
+        });
+    }
+
     validateInputFieldsOnKeyUp();
 
     errorsMessage('', '.error-message-email');
@@ -126,4 +163,5 @@ $(document).ready(function () {
     });
 
     $('#loginForm').submit(handleFormValidation);
+    $('#loginForm').submit(verifyLogin);
 });
