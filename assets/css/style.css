@@ -158,14 +158,29 @@ input {
     justify-content: space-between;
 }
 
-/* THead */
-.table-dark {
-    --bs-table-bg: #e1eaeb;
-    --bs-table-color: #000;
+.table-hover > td:last-child {
+    text-align: center;
+    width: 10px;
+    padding: 0;
 }
 
-.table-hover:hover {
-    --bs-table-bg: #e1eaeb;
+.content-delete-button {
+    color: #b2b2b2;
+    cursor: pointer;
+    display: inline-block;
+    padding: 7px 28px;
+    font-size: 1.2rem;
+}
+
+.content-delete-button:hover {
+    color: #333;
+}
+
+/* THead */
+.table-dark {
+    --bs-table-bg: rgb(61, 157, 179);
+    --bs-table-color: #fff;
+    font-weight: 100 !important;
 }
 
 /* Button */
@@ -181,11 +196,11 @@ input {
     border: 1px solid #7f7c7c;
 }
 
+/* NavBar Button */
 .d-flex {
     width: 400px;
 }
 
-/* NavBar Button */
 .d-flex .students-btn {
     margin: 0;
 }
