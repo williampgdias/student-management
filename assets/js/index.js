@@ -19,8 +19,8 @@ $(document).ready(function () {
 
     /**
      * Function to hide the error message when the User start to typing something.
-     * Also, show another error when the User start to typing something but
-     * while the User doesn't press the char '@', the message keep show.
+     * Also, show another error if the User doesn't write the '@'.
+     * Only hide if the User press this special char.
      */
     function validateInputFieldsOnKeyUp() {
         $('#floatingEmail').keyup(function () {
@@ -113,20 +113,18 @@ $(document).ready(function () {
      * Function that show the message if the User doesn't put any
      * information in the input fields.
      */
-    function handleFormValidation(event) {
+    function handleFormValidation() {
         // Condition to Email Error
         if ($('#floatingEmail').val() == '') {
             errorsMessage(
                 'Please, enter a valid email',
                 '.error-message-email'
             );
-            event.preventDefault();
         }
 
         // Condition to Name Error
         if ($('#floatingInput').val() == '') {
             errorsMessage('Please, enter a valid name', '.error-message-name');
-            event.preventDefault();
         }
 
         // Condition to Password Error
@@ -135,7 +133,6 @@ $(document).ready(function () {
                 'Please, enter a valid password',
                 '.error-message-password'
             );
-            event.preventDefault();
         }
     }
 
@@ -150,6 +147,21 @@ $(document).ready(function () {
         // Capture form data
         const email = $('#floatingEmail').val();
         const password = $('#floatingPassword').val();
+
+        if (!email || !password) {
+            if (!email) {
+                errorsMessage(
+                    'Please, enter your email',
+                    '.error-message-email'
+                );
+            } else if (!password) {
+                errorsMessage(
+                    'Please, enter your password',
+                    '.error-message-email'
+                );
+            }
+            return;
+        }
 
         $.getJSON('../../assets/data/users.json', function (users) {
             let userFound = null;
@@ -178,6 +190,7 @@ $(document).ready(function () {
     errorsMessage('', '.error-message-password');
     errorsMessage('', '.error-message-name');
 
+    // Event listener to add the Students
     $('#addStudentsButton').click(function (event) {
         event.preventDefault();
 
