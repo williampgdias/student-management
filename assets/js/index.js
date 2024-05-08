@@ -9,10 +9,19 @@ $(document).ready(function () {
 
     let students = [];
 
+    /**
+     * Function to create the logic for error message and use in different
+     * parts of the project.
+     */
     function errorsMessage(message, targetDiv) {
         $(targetDiv).text(message).show();
     }
 
+    /**
+     * Function to hide the error message when the User start to typing something.
+     * Also, show another error when the User start to typing something but
+     * while the User doesn't press the char '@', the message keep show.
+     */
     function validateInputFieldsOnKeyUp() {
         $('#floatingEmail').keyup(function () {
             let specialChar = '@';
@@ -37,6 +46,9 @@ $(document).ready(function () {
         });
     }
 
+    /**
+     * Function to add a new student to a existent array.
+     */
     function addNewStudent() {
         let studentID = $('#floatingId').val();
         let studentName = $('#floatingName').val();
@@ -64,6 +76,9 @@ $(document).ready(function () {
         $('#floatingPpsNumber').val('');
     }
 
+    /**
+     * Function to render the new student and create a new table row for the User
+     */
     function renderStudents() {
         const cardStudents = $('.table').children('tbody');
 
@@ -93,6 +108,11 @@ $(document).ready(function () {
         });
     }
 
+    /**
+     *
+     * Function that show the message if the User doesn't put any
+     * information in the input fields.
+     */
     function handleFormValidation(event) {
         // Condition to Email Error
         if ($('#floatingEmail').val() == '') {
@@ -119,6 +139,11 @@ $(document).ready(function () {
         }
     }
 
+    /**
+     * Function to verify if the User is register yet.
+     * If is true, the User is send to the students page.
+     * If not, it show a message that saying he is not register yet.
+     */
     function verifyLogin(event) {
         event.preventDefault();
 
@@ -138,8 +163,7 @@ $(document).ready(function () {
                 }
             }
             if (userFound) {
-                // ERASE THIS AFTER
-                localStorage.setItem('currentUser', JSON.stringify(userFound));
+                localStorage.setItem('currentUser', JSON.stringify(userFound)); // ERASE THIS AFTER
 
                 window.location.href = '../../students.html';
             } else {
