@@ -199,6 +199,55 @@ $(document).ready(function () {
         $('#floatingId').text('');
     });
 
+    // Event listener to register a new User
+    $('#registerForm').submit(function (event) {
+        event.preventDefault();
+
+        handleFormValidation();
+
+        // const name = $('#floatingInput').val();
+        // const email = $('#floatingEmail').val();
+        // const password = $('#floatingPassword').val();
+
+        const newUser = {
+            name: $('#floatingInput').val(),
+            email: $('#floatingEmail').val(),
+            password: $('#floatingPassword').val(),
+        };
+
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newUser),
+        })
+            .then((response) => response.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.error('Error:', error));
+
+        // $.getJSON('../../assets/data/users.json', function (users) {
+        //     users.push(newUser);
+
+        //     const jsonData = JSON.stringify(users);
+
+        //     $.ajax({
+        //         url: '../../assets/data/users.json',
+        //         type: 'POST',
+        //         contentType: 'application/json',
+        //         data: jsonData,
+        //         success: function () {
+        //             alert('Done!');
+        //         },
+        //         error: function () {
+        //             alert('Error!');
+        //         },
+        //     });
+
+        //     console.log(users);
+        // });
+    });
+
     $('#loginForm').submit(handleFormValidation);
     $('#loginForm').submit(verifyLogin);
 });
