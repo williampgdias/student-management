@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Home
+{% endblock page_title %}
+
+{% block content %}
+
+    <div class="content">
+        <div id="login">
+            <h1 class="title">Login</h1>
+            <form method="post" id="loginForm" class="row g-3 needs-validation" novalidate>
+                <div class="form-floating mb-3 col">
+                    <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com"
+                        required>
+                    <label for="floatingEmail">Email address</label>
+                    <div class="error-message-email"></div>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                        required>
+                    <label for="floatingPassword">Password</label>
+                    <div class="error-message-password"></div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </div>
+
+                <p class="link">
+                    Do you want to register?
+                    <a href="{% url "register" %}">Register</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
