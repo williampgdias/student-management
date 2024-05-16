@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Students
+{% endblock page_title %}
+
+{% block content %}
+
+    <header class="fixed-top">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand">Welcome back, <span id="userName"></span></a>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn students-btn btn-sm" type="submit">Sign Out</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container student-container">
+        <div class="add-student">
+            <h1>Students</h1>
+            <button class="btn students-btn" type="button" data-bs-toggle="modal"
+                data-bs-target="#addStudentModal">Add Student</button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="addStudentModal" tabindex="-1" aria-labelledby="addStudentModal"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="addStudentModal">New Student</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="row g-3 needs-validation" novalidate>
+                            <div class="form-floating">
+                                <input type="number" class="form-control" id="floatingId"
+                                    placeholder="name@example.com" required>
+                                <label for="floatingId">ID</label>
+                                <div class="invalid-feedback">
+                                    Please, enter a valid ID
+                                </div>
+                            </div>
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="floatingName"
+                                    placeholder="name@example.com" required>
+                                <label for="floatingName">Name</label>
+                                <div class="invalid-feedback">
+                                    Please, enter a valid name
+                                </div>
+                            </div>
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="floatingEmail"
+                                    placeholder="name@example.com" required>
+                                <label for="floatingEmail">Email address</label>
+                                <div class="invalid-feedback">
+                                    Please, enter a valid email
+                                </div>
+                            </div>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingPpsNumber"
+                                    placeholder="text" required>
+                                <label for="floatingPpsNumber">PPS Number</label>
+                                <div class="invalid-feedback">
+                                    Please, enter a valid PPS number
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn students-btn"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button class="btn students-btn" id="addStudentsButton">Add
+                                    Student</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if students %}
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">PPS Number</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                        <tr>
+                            <th scope="row"> {{ student.pk }}</th>
+                            <th scope="row"> {{ student.name }}</th>
+                            <th scope="row"> {{ student.email }}</th>
+                            <th scope="row"> {{ student.pps_number }}</th>
+                            <th scope="row" class="table-row-actions">
+                                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                            </th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You don't have a student yet. Please, register with the "add student" button.</p>
+        {% endif %}
+    </div>
+
+{% endblock content %}

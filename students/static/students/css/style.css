@@ -37,7 +37,6 @@ p {
     font-size: 1.25rem;
     border: 1px solid #fff;
     margin-bottom: 20px;
-    text-shadow: 0 1px 1px #333;
 }
 
 .btn:hover,
@@ -148,28 +147,33 @@ input {
 
 /* Students */
 /* Table */
-.container.student-container {
-    padding-top: 200px;
+.container-box .container.student-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding-top: 100px;
+}
+
+.table .btn {
+    font-size: 1rem;
+    margin-bottom: 0;
+    padding: 3px 0;
+}
+
+.table .btn:last-child {
+    background-color: red;
+}
+
+.table-row-actions {
+    display: flex;
+    gap: 10px;
 }
 
 .add-student {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.table-hover > td:last-child {
-    text-align: center;
-    width: 10px;
-    padding: 0;
-}
-
-.content-delete-button {
-    color: #b2b2b2;
-    cursor: pointer;
-    display: inline-block;
-    padding: 7px 28px;
-    font-size: 1.2rem;
 }
 
 .content-delete-button:hover {
