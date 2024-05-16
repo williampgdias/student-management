@@ -205,17 +205,13 @@ $(document).ready(function () {
 
         handleFormValidation();
 
-        // const name = $('#floatingInput').val();
-        // const email = $('#floatingEmail').val();
-        // const password = $('#floatingPassword').val();
-
         const newUser = {
             name: $('#floatingInput').val(),
             email: $('#floatingEmail').val(),
             password: $('#floatingPassword').val(),
         };
 
-        fetch('https://jsonplaceholder.typicode.com/posts', {
+        fetch('../../assets/data/users.json', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
