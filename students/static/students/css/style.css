@@ -147,11 +147,11 @@ input {
 
 /* Students */
 /* Table */
-.container-box .container.student-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
+tbody th {
+    font-weight: 400 !important;
+}
+.student-container,
+.add-student-container {
     padding-top: 100px;
 }
 
@@ -163,6 +163,10 @@ input {
 
 .table .btn:last-child {
     background-color: red;
+}
+
+.table .btn:last-child:hover {
+    background-color: red !important;
 }
 
 .table-row-actions {
@@ -208,3 +212,10 @@ input {
 .d-flex .students-btn {
     margin: 0;
 }
+
+/* Add Students */
+/* .add-student-container .students-btn {
+    border: 1px solid red;
+    position: absolute;
+    right: 0;
+} */
