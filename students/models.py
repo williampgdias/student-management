@@ -8,6 +8,7 @@ class RegisterUser(models.Model):
 
 
 class AddStudents(models.Model):
+    id = models.IntegerField(primary_key=True, unique=True)
     name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField()
     pps_number = models.CharField(max_length=10, null=False, blank=False)

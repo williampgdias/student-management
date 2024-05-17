@@ -4,19 +4,15 @@
     Students
 {% endblock page_title %}
 
-{% block content %}
+{% block header %}
+    <a class="navbar-brand">Welcome back, </a>
+    <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn students-btn btn-sm" type="submit">Sign Out</button>
+    </form>
+{% endblock header %}
 
-    <header class="fixed-top">
-        <nav class="navbar bg-body-tertiary">
-            <div class="container">
-                <a class="navbar-brand">Welcome back, </a>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn students-btn btn-sm" type="submit">Sign Out</button>
-                </form>
-            </div>
-        </nav>
-    </header>
+{% block content %}
 
     <div class="container student-container">
         <div class="add-student">
@@ -101,8 +97,8 @@
                             <th scope="row"> {{ student.email }}</th>
                             <th scope="row"> {{ student.pps_number }}</th>
                             <th scope="row" class="table-row-actions">
-                                <a href="{% url "students_update" pk=student.pk %}" class="btn btn-sm">Edit</a>
-                                <a href="#" class="btn btn-sm">Delete</a>
+                                <a href="{% url "student_update" pk=student.pk %}" class="btn btn-sm">Edit</a>
+                                <a href="{% url "student_delete" pk=student.pk %}" class="btn btn-sm">Delete</a>
                             </th>
                         </tr>
                     {% endfor %}

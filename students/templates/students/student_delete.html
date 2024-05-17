@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Delete Student
+{% endblock page_title %}
+
+
+
+{% block header %}
+    <div class="container">
+        <a class="navbar-brand">Logged as ...</a>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    <div class="container student-container">
+        <h1>Delete Student?</h1>
+
+        <p>Are you sure you want to delete <strong>{{ student.name }}</strong>?</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="{% url "students_list" %}" class="btn btn-primary">Cancel</a>
+        </form>
+    </div>
+{% endblock content %}

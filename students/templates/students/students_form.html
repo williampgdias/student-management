@@ -10,15 +10,15 @@
     {% endif %}
 {% endblock page_title %}
 
-{% block content %}
 
-    <header class="fixed-top">
-        <nav class="navbar bg-body-tertiary">
-            <div class="container">
-                <a class="navbar-brand">Logged as ...</a>
-            </div>
-        </nav>
-    </header>
+
+{% block header %}
+    <div class="container">
+        <a class="navbar-brand">Logged as ...</a>
+    </div>
+{% endblock header %}
+
+{% block content %}
 
     {% comment %} 
     Content 
