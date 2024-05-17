@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block page_title %}
+    Add Students
+{% endblock page_title %}
+
+{% block content %}
+
+    <header class="fixed-top">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand">Logged as ...</a>
+            </div>
+        </nav>
+    </header>
+
+    {% comment %} 
+        Content 
+    {% endcomment %}
+    
+    <div class="container add-student-container">
+        
+        <form method="POST">
+
+            <div class="add-student">
+                <h1>Add Students</h1>
+                <button type="submit" class="btn students-btn">Save</button>
+            </div>
+
+            {% csrf_token %}
+
+            {% comment %} <h1>Add Students</h1> {% endcomment %}
+
+            {% comment %} <button type="submit" class="btn students-btn">Save</button> {% endcomment %}
+            
+            {{ form|crispy }}
+
+        </form>
+    </div>
+{% endblock content %}

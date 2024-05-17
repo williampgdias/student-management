@@ -9,7 +9,7 @@
     <header class="fixed-top">
         <nav class="navbar bg-body-tertiary">
             <div class="container">
-                <a class="navbar-brand">Welcome back, <span id="userName"></span></a>
+                <a class="navbar-brand">Welcome back, </a>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn students-btn btn-sm" type="submit">Sign Out</button>
@@ -21,12 +21,13 @@
     <div class="container student-container">
         <div class="add-student">
             <h1>Students</h1>
-            <button class="btn students-btn" type="button" data-bs-toggle="modal"
-                data-bs-target="#addStudentModal">Add Student</button>
+            <a href="{% url 'students_add' %}" class="btn students-btn">Add Student</a>
+            {% comment %} <button class="btn students-btn" type="button" data-bs-toggle="modal"
+                data-bs-target="#addStudentModal">Add Student</button> {% endcomment %}
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="addStudentModal" tabindex="-1" aria-labelledby="addStudentModal"
+        {% comment %} <div class="modal fade" id="addStudentModal" tabindex="-1" aria-labelledby="addStudentModal"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -79,9 +80,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
 
-        {% if students %}
+        {% if students_list %}
             <table class="table table-striped">
                 <thead class="table-dark">
                     <tr>
@@ -93,7 +94,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for student in students %}
+                    {% for student in students_list %}
                         <tr>
                             <th scope="row"> {{ student.pk }}</th>
                             <th scope="row"> {{ student.name }}</th>
