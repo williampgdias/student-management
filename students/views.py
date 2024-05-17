@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 
 from .models import AddStudents
@@ -25,8 +25,17 @@ class StudentsCreateView(CreateView):
     fields = ["name", "email", "pps_number"]
     success_url = reverse_lazy("students_list")
 
-    template_name = "students/students_add.html"
-    context_object_name = "students_add"
+    template_name = "students/students_form.html"
+    context_object_name = "student"
+
+
+class StudentsUpdateView(UpdateView):
+    model = AddStudents
+    fields = ["name", "email", "pps_number"]
+    success_url = reverse_lazy("students_list")
+
+    template_name = "students/students_form.html"
+    context_object_name = "student"
 
 
 # def add_students(request):

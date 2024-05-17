@@ -3,7 +3,11 @@
 {% load crispy_forms_tags %}
 
 {% block page_title %}
-    Add Students
+    {% if student.pk %}
+        Edit Student
+    {% else %}
+        Add Student
+    {% endif %}
 {% endblock page_title %}
 
 {% block content %}
@@ -17,26 +21,23 @@
     </header>
 
     {% comment %} 
-        Content 
+    Content 
     {% endcomment %}
-    
+
     <div class="container add-student-container">
-        
+        {% if student.pk %}
+            <h1>Edit Student</h1>
+        {% else %}
+            <h1>Add Student</h1>
+        {% endif %}
+
         <form method="POST">
-
-            <div class="add-student">
-                <h1>Add Students</h1>
-                <button type="submit" class="btn students-btn">Save</button>
-            </div>
-
             {% csrf_token %}
 
-            {% comment %} <h1>Add Students</h1> {% endcomment %}
-
-            {% comment %} <button type="submit" class="btn students-btn">Save</button> {% endcomment %}
-            
             {{ form|crispy }}
 
+            <button type="submit" class="btn students-btn">Save</button>
         </form>
     </div>
+    
 {% endblock content %}
